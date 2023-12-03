@@ -1,0 +1,54 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "image": "../assets/images/item2.jpg",
+            "category": "Men",
+            "description": "MR.SIGA Microfiber Cleaning Cloth, All-Purpose Cleaning Towels",
+            "name": "Shoes",
+            "brand": "Nike",
+            "color": "Yellow",
+            "price": 100
+        },
+        {
+            "id": 2,
+            "image": "../assets/images/item2.jpg",
+            "category": "Women",
+            "description": "MR.SIGA Microfiber Cleaning Cloth, All-Purpose Cleaning Towels",
+            "name": "Pant",
+            "brand": "Adidas",
+            "color": "Green",
+            "price": 50
+        },
+        {
+            "id": 3,
+            "image": "../assets/images/item1.jpg",
+            "category": "child",
+            "description": "MR.SIGA Microfiber Cleaning Cloth, All-Purpose Cleaning Towels",
+            "name": "Shart",
+            "brand": "Zara",
+            "color": "Red",
+            "price": 200
+        },
+        {
+            "id": 4,
+            "image": "../assets/images/item1.jpg",
+            "category": "Men",
+            "description": "MR.SIGA Microfiber Cleaning Cloth, All-Purpose Cleaning Towels",
+            "name": "T-Shart",
+            "brand": "H&M",
+            "color": "Blue",
+            "price": 10
+        },
+        {
+            "id": 5,
+            "image": "../assets/images/item1.jpg",
+            "category": "Electric",
+            "description": "MR.SIGA Microfiber Cleaning Cloth, All-Purpose Cleaning Towels",
+            "name": "Tower Fan",
+            "brand": "Dreo",
+            "color": "Black",
+            "price": 76
+        }
+    ]
+}
