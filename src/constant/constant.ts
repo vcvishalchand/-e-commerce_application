@@ -12,12 +12,21 @@ export const FILTTER_BY = {
     MIN_PRICE: 'Min Price',
 }
 
-export const PLACE_YOUR_ORDER = 'Proceed to checkout';
+export const AAD_TO_CART = 'Add to Cart'
+export const REMOVE_PRODUCT = 'DELETE'
+export const CLEAR_CART = 'Remove'
+export const BUY_NOW = 'Buy Now'
+export const PROCEED_TO_BUY = 'Buy';
+export const PLACE_YOUR_ORDER = 'Place your order';
 export const SUBTOTAL = 'Subtotal';
 export const CART = 'Cart';
 export const CATEGORIES = 'Categories';
 export const MORE_DETAILS = 'More Details'
 export const SEE_MORE = 'See More'
+export const NO_PRODUCT = 'No Product Added'
+export const CART_EMPTY = 'Cart Empty Add Item in Cart'
+export const BACK_TO_SHOPING = 'Back to Shopping'
+
 
 export const CATEGORY = {
     ELECTRONICS: 'Electronics',

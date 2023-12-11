@@ -8,6 +8,8 @@ export interface Product {
     price: number;
     image: string;
     subCategory: string;
+    quantity: number,
+    inventory: number
 }
 
 export interface FilterOptions {
@@ -25,10 +27,18 @@ export interface AppState {
 }
 
 export interface SearchBarProps {
-    handleSearch: (event: any, searchQuery: any) => void
+    handleSearch: (event: any, searchQuery: any) => void,
+    searchbox?: boolean,
+    cartIcon?: boolean
 }
 
 export interface FilterOptionsProps {
     filterOptions: { brand: string; color: string; minPrice: number; maxPrice: number };
     onFilterChange: (newFilters: { brand: string; color: string; minPrice: number; maxPrice: number }) => void;
+}
+
+export interface stateProps {
+    cart: {
+        cartItemsID: number[]
+    }
 }

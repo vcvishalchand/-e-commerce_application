@@ -5,7 +5,7 @@ import Logo from './Logo';
 import CartIcon from './CartIcon'
 import { SearchBarProps } from '../../type/types';
 
-const Header: React.FC<SearchBarProps> = ({ handleSearch }) => {
+const Header: React.FC<SearchBarProps> = ({ handleSearch, searchbox = true, cartIcon = true }) => {
 
   return (
     <>
@@ -16,11 +16,11 @@ const Header: React.FC<SearchBarProps> = ({ handleSearch }) => {
               <Logo />
             </Grid>
             <Grid item xs={12} md={6}>
-              <SearchBox handleSearch={handleSearch} />
+              {searchbox && <SearchBox handleSearch={handleSearch} />}
             </Grid>
             <Grid item container xs={12} md={3} justifyContent="flex-end">
               <Grid item>
-                <CartIcon />
+                {cartIcon && <CartIcon />}
               </Grid>
             </Grid>
           </Grid>

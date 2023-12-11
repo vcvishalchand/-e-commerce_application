@@ -5,72 +5,52 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 
 interface SubCategoryProps {
     checkedCategories: string[],
-    selectCategory: () => void,
 }
 
-export const SubCategoryCheckBox: React.FC<SubCategoryProps> = ({ checkedCategories, selectCategory }) => {
-    const [selectSubCategory, setSelectSubCategory] = React.useState<string[]>([]);
-    const subCategory = ['Men', 'Women', 'Baby'];
+export const SubCategoryCheckBox: React.FC<SubCategoryProps> = ({ checkedCategories }) => {
+    const checkBoxUnit = ['Men', 'Women', 'Baby'];
+    let checkBoxlen = checkBoxUnit.length;
+    const [checked, setChecked] = React.useState(Array(checkBoxlen).fill(false));
+
     let lable = 'Cloths';
 
     const handleCheckedMaster = (event: React.ChangeEvent<HTMLInputElement>) => {
-        // if (!event.target.checked) {
-        //     setSelectSubCategory([]);
-        // } else {
-        //     setSelectSubCategory(subCategory);
-        // }
-
-        if (event.target.checked) {
-            selectCategory();
-            setSelectSubCategory(subCategory);
-        } if (!event.target.checked) {
-            selectCategory();
-            setSelectSubCategory([]);
-        }
-
+        const len = checked.length;
+        const updatedChecked = Array(len).fill(event.target.checked)
+        setChecked(updatedChecked);
     };
 
-    const handleSelectSubCategory = (event: React.ChangeEvent<HTMLInputElement>, index: number, subCategory: string) => {
-        const updateSubCategory = [...selectSubCategory]
-        if (updateSubCategory.includes(subCategory)) {
-            updateSubCategory.splice(updateSubCategory.indexOf(subCategory), 1)
-        } else {
-            updateSubCategory.push(subCategory);
-        }
-        setSelectSubCategory(updateSubCategory);
+    const handleChecked = (event: React.ChangeEvent<HTMLInputElement>, index: number, category: string) => {
+        const updatedChecked = [...checked]
+        updatedChecked[index] = event.target.checked;
+        setChecked(updatedChecked);
     };
 
     const children = (
         <Box sx={{ display: 'flex', flexDirection: 'column', ml: 3 }}>
-            {subCategory.map((subCategory: string, index: number) => (
+            {checkBoxUnit.map((category: string, index: number) => (
                 <FormControlLabel
-                    key={subCategory}
-                    label={subCategory}
-                    control={<Checkbox checked={selectSubCategory.includes(subCategory)}
-                        onChange={(event) => handleSelectSubCategory(event, index, subCategory)} />}
+                    key={category}
+                    label={category}
+                    control={<Checkbox checked={checked[index]} onChange={(event) => handleChecked(event, index, category)} />}
                 />)
             )}
         </Box>
     );
-    console.log('check', selectSubCategory)
-    console.log('s', selectSubCategory.length !== 0, checkedCategories.includes(lable))
-    console.log('result', selectSubCategory.length !== 0 && checkedCategories.includes(lable))
-    console.log('indeterminate', selectSubCategory.length !== 0, selectSubCategory.length !== subCategory.length)
-    console.log('indeterminate result', selectSubCategory.length !== 0 && selectSubCategory.length !== subCategory.length)
-    //  3 !== 0 --true   
+
     return (
         <>
             <FormControlLabel
                 label={lable}
                 control={
                     <Checkbox
-                        checked={checkedCategories.includes(lable)}
-                        indeterminate={selectSubCategory.length !== 0 && selectSubCategory.length !== subCategory.length}
-                        onChange={(event) => handleCheckedMaster(event)}
+                        checked={checked.every(value => value)}
+                        indeterminate={checked.some(value => value) !== checked.every(value => value)}
+                        onChange={handleCheckedMaster}
                     />
                 }
             />
-            {selectSubCategory.some(item => item) && children}
+            {checked?.some(item => item) && children}
         </>
     );
 }

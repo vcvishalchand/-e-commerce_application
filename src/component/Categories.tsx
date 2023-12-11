@@ -35,8 +35,7 @@ const Categories: React.FC<CategoriesProps> = ({ checkedCategories, onSelectCate
         {Categories.map(category => {
           if (category === CATEGORY.CLOTHS) {
             return (<SubCategoryCheckBox key={category}
-              checkedCategories={checkedCategories}
-              selectCategory={() => handleCheckedCategory(category)} />)
+              checkedCategories={checkedCategories} />)
           } else {
             return (
               <FormControlLabel

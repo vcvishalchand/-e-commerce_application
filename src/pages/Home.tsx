@@ -7,11 +7,8 @@ import Header from '../component/header/Header';
 import Footer from '../component/footer/Footer';
 import Banner from '../component/Banner';
 import ItemList from '../component/ItemList';
-import getProductData from '../APIcall/service';
 import { Spiner } from '../component/Spiner';
-import { Product } from '../type/types';
 import { products } from '../mockdata/data';
-import { json } from 'stream/consumers';
 import { SEE_MORE } from '../constant/constant';
 
 const Home: React.FC = () => {
