@@ -38,7 +38,7 @@ const ProductDetail: React.FC = () => {
   // Get product by id
   let product: any = getProductById(Number(id))
 
-  const handleSearch = (event: any, searchQuery: any) => {
+  const handleSearch = (searchQuery: any) => {
     navigate('/product', { state: searchQuery });
   };
 

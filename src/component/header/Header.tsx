@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { } from 'react';
 import { AppBar, Container, Grid } from '@mui/material';
 import SearchBox from './SearchBar';
 import Logo from './Logo';

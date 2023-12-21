@@ -20,7 +20,7 @@ const ItemList: React.FC<ItemListProps> = ({ items, btnLabel, details = false })
     return (
         <Grid container spacing={3}>
             {items.map((item) => (
-                <Grid item key={item.id} xs={12} sm={6} md={4} style={{ marginTop: '20px' }}>
+                <Grid item key={item.id + item.price} xs={12} sm={6} md={4} style={{ marginTop: '20px' }}>
                     <Card>
                         <CardMedia
                             component="img"

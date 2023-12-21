@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Typography, Button } from '@mui/material';
+import { Paper, Typography } from '@mui/material';
 import Banner from '../assets/images/banner.jpg'
 
 const styles = {

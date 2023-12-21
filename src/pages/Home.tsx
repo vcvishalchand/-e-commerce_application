@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useNavigate } from "react-router-dom";
-import {
+import { 
     Container, CssBaseline
 } from '@mui/material';
 import Header from '../component/header/Header';
@@ -10,10 +10,11 @@ import ItemList from '../component/ItemList';
 import { Spiner } from '../component/Spiner';
 import { products } from '../mockdata/data';
 import { SEE_MORE } from '../constant/constant';
+import { debounce } from 'lodash';
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
     // const [products, setProducts] = useState<Product[]>([])
 
     // useEffect(() => {
@@ -32,7 +33,7 @@ const Home: React.FC = () => {
     // }, []);
 
 
-    const handleSearch = (event: any, searchQuery: any) => {
+    const handleSearch = (searchQuery: any) => {
         if (searchQuery) {
             navigate('/product', { state: searchQuery });
         }

@@ -27,7 +27,7 @@ export interface AppState {
 }
 
 export interface SearchBarProps {
-    handleSearch: (event: any, searchQuery: any) => void,
+    handleSearch: (searchQuery: any) => void,
     searchbox?: boolean,
     cartIcon?: boolean
 }

@@ -1,21 +1,18 @@
 import React from 'react';
 import Header from '../component/header/Header';
 import Footer from '../component/footer/Footer';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import { products } from '../mockdata/data';
+import { Link, useNavigate } from 'react-router-dom';
 import ProductDescription from '../component/product/ProductDescription';
 import { Box, Button, Card, CardContent, Container, Grid, Typography } from '@mui/material';
-import Cart from '../component/Cart';
 import { clearCart } from '../store/action/cartActions';
 import { BACK_TO_SHOPING } from '../constant/constant';
 import { useDispatch } from 'react-redux';
 
 const OrderPlaced: React.FC = () => {
-  const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleSearch = (event: any, searchQuery: any) => {
+  const handleSearch = (searchQuery: any) => {
     navigate('/product', { state: searchQuery });
   };
   const handleClearCart = () => {

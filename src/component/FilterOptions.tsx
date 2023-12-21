@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormControl, MenuItem, Select, Slider, Typography } from '@mui/material';
 import { FilterOptionsProps } from '../type/types';
-import { CATEGORIES, CATEGORY, FILTTER_BY } from '../constant/constant';
+import { FILTTER_BY } from '../constant/constant';
 
 const FilterOptions: React.FC<FilterOptionsProps> = ({ filterOptions, onFilterChange }) => {
   const brands = ['Adidas', 'Nike', 'Zara', 'H&M', 'Dreo', 'Gionlion'];

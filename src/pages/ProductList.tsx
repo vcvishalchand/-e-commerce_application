@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom';
 import { Card, CardContent, Container, Grid } from '@mui/material';
 import ItemList from '../component/ItemList';
 import Categories from '../component/Categories';
-import { MORE_DETAILS, NO_PRODUCT } from '../constant/constant';
+import { MORE_DETAILS, NO_PRODUCT, PRODUCT_NOT_FOUND } from '../constant/constant';
 import { NotFound } from '../component/NotFound';
 
 const ProductList: React.FC = () => {
@@ -26,9 +26,9 @@ const ProductList: React.FC = () => {
 
   useEffect(() => {
     if (location.state) {
-      setSearchTerm(location.state)
+      setSearchTerm(location.state);
     } else {
-      setSearchTerm('')
+      setSearchTerm('');
     }
   }, [location]);
 
@@ -45,7 +45,7 @@ const ProductList: React.FC = () => {
         (checkedSubcategories.length === 3 || checkedSubcategories.some(category => product.subCategory.includes(category)))
     ).sort((a, b) => (sortOption === 'asc' ? a.price - b.price : b.price - a.price));
 
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>, searchQuery: string) => {
+  const handleSearch = (searchQuery: string) => {
     setSearchTerm(searchQuery);
   };
 
@@ -72,7 +72,7 @@ const ProductList: React.FC = () => {
             </Card>
           </Grid>
           <Grid item xs={12} sm={10} md={9} >
-            {filteredProducts.length === 0 ? <NotFound message={NO_PRODUCT} /> :
+            {filteredProducts.length === 0 ? <NotFound message={PRODUCT_NOT_FOUND} /> :
               <ItemList items={filteredProducts} btnLabel={MORE_DETAILS} details={true} />}
           </Grid>
         </Grid>

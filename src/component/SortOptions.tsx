@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FormControl, MenuItem, Select, Typography } from '@mui/material';
 
 interface SortOptionsProps {

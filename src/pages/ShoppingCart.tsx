@@ -2,8 +2,8 @@ import React from 'react';
 import Header from '../component/header/Header';
 import Footer from '../component/footer/Footer';
 import { useNavigate } from 'react-router-dom';
-import { BACK_TO_SHOPING, CLEAR_CART, NO_PRODUCT, PROCEED_TO_BUY, REMOVE_PRODUCT } from '../constant/constant';
-import { Box, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Container, Divider, Grid, InputLabel, MenuItem, Popper, Select, TextField, Typography } from '@mui/material';
+import { BACK_TO_SHOPING, CHECKOUT, CLEAR_CART, NO_PRODUCT, REMOVE_PRODUCT } from '../constant/constant';
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Container, Divider, Grid, InputLabel, MenuItem, Select, Typography } from '@mui/material';
 import Cart from '../component/Cart'
 import ShoppingCartDescription from '../component/ShoppingCartDescription';
 import { useSelector } from 'react-redux';
@@ -29,7 +29,7 @@ const ShoppingCart: React.FC = () => {
     dispatch(removeFromCart(productById));
   }
 
-  const handleSearch = (event: any, searchQuery: any) => {
+  const handleSearch = (searchQuery: any) => {
     navigate('/product', { state: searchQuery });
   };
 
@@ -43,7 +43,7 @@ const ShoppingCart: React.FC = () => {
       <Container>
         <Grid container spacing={3} style={{ marginTop: '20px' }}>
           <Grid item xs={12} sm={6} lg={9}>
-            {cartItems.length === 0 ? <NotFound message={NO_PRODUCT} /> : cartItems.map((item: any) => (<Grid key={item.id + item.name} item style={{ marginTop: '20px' }}>
+            {cartItems.length === 0 ? <NotFound message={NO_PRODUCT} /> : cartItems.map((item: any) => (<Grid key={item.id + item.price} item style={{ marginTop: '20px' }}>
               <Card sx={{ display: 'flex' }}>
                 {item.image && <CardMedia
                   style={{ width: 200 }}
@@ -75,7 +75,7 @@ const ShoppingCart: React.FC = () => {
                         sx={{ margin: '0px 20px 0px 10px' }}
                       >
                         {quantityOptions.map((value) => (
-                          <MenuItem key={value} value={value}>
+                          <MenuItem key={value + value} value={value}>
                             {value}
                           </MenuItem>
                         ))}
@@ -99,7 +99,7 @@ const ShoppingCart: React.FC = () => {
           </Grid>
           <Grid item xs={12} sm={6} lg={3} style={{ marginTop: '20px' }}>
             {cartItems.length === 0 ? <Cart btnLabel={BACK_TO_SHOPING} gotoPage='/product' /> :
-              <Cart handleClearCart={handleClearCart} btnLabel={PROCEED_TO_BUY} gotoPage='/product/checkout'
+              <Cart handleClearCart={handleClearCart} btnLabel={CHECKOUT} gotoPage='/product/checkout'
                 btnLabelTwo={CLEAR_CART} />
             }
           </Grid>
